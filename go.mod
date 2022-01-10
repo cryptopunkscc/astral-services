@@ -3,11 +3,11 @@ module github.com/cryptopunkscc/astral-services
 go 1.17
 
 require (
-	github.com/azul3d/engine v0.0.0-20211024043305-793ea6c2839d
 	github.com/cryptopunkscc/astrald v0.0.0-20211217231959-5179818a78de
 	github.com/etclabscore/go-openrpc-reflect v0.0.36
 	github.com/go-openapi/jsonreference v0.19.4
 	github.com/go-openapi/spec v0.19.11
+	github.com/jteeuwen/go-bindata v3.0.7+incompatible
 	github.com/open-rpc/meta-schema v0.0.0-20201029221707-1b72ef2ea333
 )
 

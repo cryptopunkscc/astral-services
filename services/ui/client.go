@@ -38,3 +38,30 @@ func Register(port string, doc *openrpc_document.OpenrpcDocument) (err error) {
 	err = util.WriteL64Bytes(queryConn, jsonDoc)
 	return
 }
+
+func RegisterJson(port string, doc []byte) (err error) {
+	conn, err := astral.Query("", serviceHandle)
+	defer conn.Close()
+	if err != nil {
+		return
+	}
+	err = enc.WriteL8String(conn, "register")
+	if err != nil {
+		return
+	}
+	queryPort, err := enc.ReadL8String(conn)
+	if err != nil {
+		return
+	}
+	queryConn, err := astral.Query("", queryPort)
+	defer queryConn.Close()
+	if err != nil {
+		return
+	}
+	err = enc.WriteL8String(queryConn, port)
+	if err != nil {
+		return
+	}
+	err = util.WriteL64Bytes(queryConn, doc)
+	return
+}
