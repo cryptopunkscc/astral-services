@@ -20,7 +20,6 @@ var schemaSubscribers = make(map[io.ReadWriteCloser]interface{})
 var schemaEvents = make(chan interface{})
 
 func init() {
-	astral.Instance().UseTCP = true
 	commands = cmdMap{
 		"register":  registerSchema,
 		"schema":    streamSchemas,
@@ -35,6 +34,7 @@ type portSchema struct {
 }
 
 func Serve() {
+	astral.Instance().UseTCP = true
 	port, err := astral.Reqister(serviceHandle)
 	if err != nil {
 		log.Panic(err)

@@ -3,12 +3,14 @@ package demo
 import (
 	"github.com/cryptopunkscc/astral-services/components/rpc"
 	"github.com/cryptopunkscc/astral-services/services/ui"
+	astral "github.com/cryptopunkscc/astrald/mod/apphost/client"
 	"log"
 )
 
 var ServiceHandle = "demo"
 
 func Serve() {
+	astral.Instance().UseTCP = true
 	// Prepare messenger
 	mess := NewMessenger()
 
