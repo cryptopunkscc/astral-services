@@ -10,10 +10,10 @@ import (
 
 func Register(port string, doc *openrpc_document.OpenrpcDocument) (err error) {
 	conn, err := astral.Query("", serviceHandle)
-	defer conn.Close()
 	if err != nil {
 		return
 	}
+	defer conn.Close()
 	err = enc.WriteL8String(conn, "register")
 	if err != nil {
 		return
@@ -41,10 +41,10 @@ func Register(port string, doc *openrpc_document.OpenrpcDocument) (err error) {
 
 func RegisterJson(port string, doc []byte) (err error) {
 	conn, err := astral.Query("", serviceHandle)
-	defer conn.Close()
 	if err != nil {
 		return
 	}
+	defer conn.Close()
 	err = enc.WriteL8String(conn, "register")
 	if err != nil {
 		return
