@@ -48,7 +48,7 @@ func testGetMessages() {
 	}()
 	response := new(rpc.JsonClientResponse)
 	var err error
-	for true {
+	for {
 		err = dec.Decode(response)
 		if err != nil {
 			break

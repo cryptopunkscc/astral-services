@@ -396,7 +396,7 @@ func (s *service) call(
 	}()
 
 	if replyv != nil {
-		for true {
+		for {
 			next, ok := replyv.Recv()
 			if !ok {
 				break
